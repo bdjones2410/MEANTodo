@@ -1,0 +1,29 @@
+{
+  "name": "mean-todo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "npm compsass & nodemon server.js",
+    "compsass": "node-sass ./app/styles/styles.scss ./app/styles/styles.css"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "express": "^4.13.4"
+  },
+  "dependencies": {
+    "angular": "^1.5.3",
+    "angular-messages": "^1.5.3",
+    "angular-route": "^1.5.3",
+    "angular-strap": "^2.3.8",
+    "bcryptjs": "^2.3.0",
+    "body-parser": "^1.15.0",
+    "jwt-simple": "^0.5.0",
+    "moment": "^2.12.0",
+    "mongodb": "^2.1.16",
+    "mongoose": "^4.4.12",
+    "satellizer": "^0.14.0"
+  }
+}

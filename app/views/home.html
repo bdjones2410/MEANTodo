@@ -1,0 +1,24 @@
+  <form  method="post" ng-submit="login()" name="loginform">
+    <input type="text" name="uname" ng-model="uname" placeholder="username">
+    <input type="password" name="password" placeholder="Password" ng-model="password">
+    <button type="submit">Log in</button>
+  </form>
+<div class="logout" ng-if="isAuthenticated()">
+  <h1>Logged In</h1>
+  <button type="logout" ng-click="logout()">Log Out</button>
+</div>
+<br>
+
+
+<br>
+<form method="post" ng-submit="signup()" name="loginform">
+  <input type="text" name="signupuname" ng-model="signupname" placeholder="username">
+  <input type="password" name="password" placeholder="Password" ng-model="signuppass">
+  <button type="submit">Sign Up</button>
+</form>
+<br>
+<input type="text" name="todoPost" ng-model="todoval" value="">
+<button type="button" ng-click="todoPost(todoval)">todo</button>
+<br>
+<br>
+<button type="button" ng-click="getall()">get</button>
