@@ -5,7 +5,9 @@ var bcrypt = require('bcryptjs');
 
 var UserSchema = new Schema({
   uname: {type:String, require: true, unique: true},
-  password:{type: String, require: true}
+    //select false on password, so it mongo won't return the collumn/field
+    //for password unless we specifically request it with +password
+  password:{type: String, select:false, require: true}
 });
 
 UserSchema.pre('save', function(next){

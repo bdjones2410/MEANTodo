@@ -9,7 +9,9 @@ var authToken = require('./tokenMaker').authToken;
 
 router.route('/login')
   .post(function(req, res, next){
-    User.findOne({uname: req.body.uname},
+      // findone by username,  add password field to query because
+      // its not selected by default, so we need to specifically request it.
+    User.findOne({uname: req.body.uname}, '+password',
       function(err, user, next){
         if (err) return next(err);
         if(!user){
@@ -45,7 +47,7 @@ router.route('/signup')
       });
       user.save(function(err){
         if(err) throw err;
-        res.send({
+        res.json({
           token: genToken(user)
         });
       });

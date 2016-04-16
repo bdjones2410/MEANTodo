@@ -16,8 +16,8 @@
             $auth.signup({
               uname: $scope.signupname,
               password: $scope.signuppass
-            }).then(function(res){
-              console.log(res);
+            }).success(function(res){
+              console.log('res', res);
             });
           };
 
