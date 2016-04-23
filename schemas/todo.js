@@ -8,6 +8,7 @@ var todoSchema = new Schema({
   user_id: {type:Schema.Types.Mixed, select:false},
   todo: {type: String, require: true},
   completed: {type:Boolean, default: false},
+  compDate: {type: Date, default:null},
   notes: [String],
   created: {type: Date, default: Date.now}
 });

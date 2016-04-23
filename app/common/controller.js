@@ -2,52 +2,55 @@
   'use strict';
     angular
       .module('mean-todo')
-      .controller('MainController', function($uibModal, $scope, $auth, $http, mainService){
-        var vm = this;
-          $scope.open = function(){
-            var modalInstance = $uibModal.open({
-              templateUrl: 'views/register.html',
-              controller: 'ModalInstanceCtrl',
-              size: 'md'
-            });
-        };
+        .controller('MainController', ['$uibModal', 'mainService', function($uibModal, mainService){
 
-          $scope.todoPost = function(todoMessage){
-            $http.post('/todo/add', {todo: todoMessage})
-            .success(function(res){
-              console.log(res);
+          var vm = this;
+
+          vm.todoPost = function(todo){
+            mainService.createTodo(todo)
+            .then(function(){
+              vm.populate();
             });
           };
 
-
-          // REFACTORED TO SERVICE
-          $scope.login = function(user, pword){
-            mainService.login(user, pword).then(function(res){
+          vm.populate = function(){
+            mainService.populate()
+            .then(function(res){
               vm.username = res.user;
               vm.todos = res.todos;
             });
+          };
+
+          vm.login = function(user, pword){
+            mainService.login(user, pword)
+            .then(function(res){
+              vm.populate();
+            });
 
           };
 
-          $scope.logout = function(){
+          vm.logout = function(){
             mainService.logout().then(function(){
               vm.todos = [];
             });
           };
 
-          $scope.isAuthenticated = function(){
+          vm.isAuthenticated = function(){
             return mainService.auth();
           };
 
-          if(mainService.auth()){
-            mainService.populate().then(function(res){
-              console.log(res);
-              vm.username = res.user;
-              vm.todos = res.todos;
+          //MODAL
+          vm.open = function(){
+            var modalInstance = $uibModal.open({
+              templateUrl: 'views/register.html',
+              controller: 'ModalInstanceCtrl',
+              size: 'md'
             });
+          };
+
+          if(mainService.auth()){
+            vm.populate();
           }
 
-
-        });
-
+      }]);
 }());

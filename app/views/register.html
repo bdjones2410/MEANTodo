@@ -1,7 +1,7 @@
 <div class="modal-todo">
   <div ng-hide="created()">
     <h1>Sign Up</h1>
-    <form method="post" ng-submit="signup()" name="loginform">
+    <form method="post" ng-submit="signup(signupname, signuppass)" name="loginform">
       <input type="text" name="signupuname" ng-model="signupname" placeholder="username">
       <input type="password" name="password" placeholder="Password" ng-model="signuppass">
       <button type="submit" class="btn btn-primary custom-btn">Register</button>

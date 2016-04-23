@@ -9,7 +9,7 @@
         'ui.bootstrap'
       ])
 
-    .config(function($routeProvider){
+    .config(['$routeProvider', function($routeProvider){
       $routeProvider
         .when('/', {
           templateUrl:
@@ -22,5 +22,5 @@
         .otherwise({
           redirectTo: '/404'
         });
-    });
+    }]);
 }());
