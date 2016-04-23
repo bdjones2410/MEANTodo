@@ -5,7 +5,8 @@
       .module('mean-todo', [
         'ngRoute',
         'ngMessages',
-        'satellizer'
+        'satellizer',
+        'ui.bootstrap'
       ])
 
     .config(function($routeProvider){

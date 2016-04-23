@@ -5,7 +5,7 @@ var moment = require('moment');
 
 
 var todoSchema = new Schema({
-  user_id: Schema.Types.Mixed,
+  user_id: {type:Schema.Types.Mixed, select:false},
   todo: {type: String, require: true},
   completed: {type:Boolean, default: false},
   notes: [String],

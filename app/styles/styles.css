@@ -1,3 +1,90 @@
+/******************************
+      OVER ALL
+******************************/
+* {
+  box-sizing: border-box; }
+
+a {
+  cursor: pointer; }
+
+html {
+  height: 100%; }
+
 body {
   background-color: black;
-  color: white; }
+  height: 100%;
+  margin: 0; }
+  body form {
+    margin-bottom: 15px; }
+    body form .custom-btn {
+      vertical-align: inherit;
+      padding: 2px 6px 3px; }
+
+/******************************
+          MODAL
+******************************/
+/******************************
+        SIGN UP MODAL
+******************************/
+.modal-todo {
+  color: black;
+  text-align: center;
+  padding: 30px; }
+  .modal-todo input {
+    display: inherit;
+    margin: 5px auto;
+    color: black; }
+
+/******************************
+        ASIDE
+******************************/
+aside {
+  /******************************
+          USER INFO
+******************************/
+  /******************************
+          TD LISTS
+******************************/
+  background-color: white;
+  height: 100%;
+  width: 25%;
+  float: left; }
+  aside .main-icon {
+    text-align: center;
+    color: grey; }
+  aside #user-icon-main {
+    font-size: 7em;
+    margin-top: 15px; }
+  aside .main-log {
+    text-align: center;
+    margin-top: 15px; }
+  aside .sign-up {
+    color: black; }
+  aside .login {
+    padding-bottom: 30px;
+    margin: 10px;
+    border-bottom: 1px solid grey; }
+  aside input {
+    width: 33%; }
+  aside .blueman {
+    color: blue; }
+  aside .logged-in {
+    text-align: center; }
+  aside .logged-in-user {
+    display: block;
+    font-size: 1.5em; }
+
+/******************************
+        MAIN CONTENT
+******************************/
+section {
+  background-color: blue;
+  height: 100%;
+  width: 75%;
+  display: inline-block; }
+
+.testing {
+  color: yellow; }
+
+.bigme {
+  font-size: 4em; }

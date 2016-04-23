@@ -1,4 +1,77 @@
+/******************************
+      OVER ALL
+******************************/
+
+
+
+* {
+  box-sizing: border-box;
+}
+a {
+  cursor: pointer;
+}
+html {
+  height: 100%;
+}
 body {
   background-color: black;
-  color: white;
+  height: 100%;
+  margin: 0;
+  form {
+    margin-bottom:15px;
+    .custom-btn {
+      vertical-align: inherit;
+      padding:2px 6px 3px
+    }
+  }
+}
+
+
+
+
+/******************************
+          MODAL
+******************************/
+
+
+
+@import "modal";
+
+
+
+/******************************
+        ASIDE
+******************************/
+
+
+
+aside {
+  @import "user";
+  background-color:white;
+  height: 100%;
+  width: 25%;
+  float: left;
+
+}
+
+
+
+/******************************
+        MAIN CONTENT
+******************************/
+
+
+
+section {
+  background-color: blue;
+  height: 100%;
+  width: 75%;
+  display: inline-block;
+}
+
+.testing {
+  color: yellow;
+}
+.bigme {
+  font-size:4em;
 }

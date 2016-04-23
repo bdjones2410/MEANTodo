@@ -54,4 +54,16 @@ router.route('/signup')
     });
   });
 
+//return the username to the front.
+
+router.route('/curuser')
+  .get(authToken, function(req,res){
+    User.findOne({_id: req.user}, function(err, isMatch){
+      if(isMatch){
+        req.username = isMatch.uname;
+        res.send(req.username);
+      }
+    });
+  });
+
 module.exports = router;

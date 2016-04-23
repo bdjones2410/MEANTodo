@@ -1,24 +1,49 @@
-  <form  method="post" ng-submit="login()" name="loginform">
-    <input type="text" name="uname" ng-model="uname" placeholder="username">
-    <input type="password" name="password" placeholder="Password" ng-model="password">
-    <button type="submit">Log in</button>
-  </form>
+<aside>
+  <div  class="login">
+    <div class="main-icon" ng-class="{blueman: isAuthenticated()}">
+      <i id="user-icon-main" class="fa fa-user" aria-hidden="true"></i>
+    </div>
+    <div ng-hide="isAuthenticated()" class="main-log">
+      <form   method="post" ng-submit="login(uname, password)" name="loginform">
+          <input type="text" name="uname" ng-model="uname" placeholder="username">
+          <input type="password" name="password" placeholder="Password" ng-model="password">
+          <button type="submit" class="btn btn-primary custom-btn">Log in</button>
+      </form>
+      <div class="sign-up">
+        <span>New User? <a ng-click="open()">Sign Up</a></span>
+      </div>
+      <div class="sign-up test-user">
+        or log in as test user.
+      </div>
+    </div>
+    <div ng-if="isAuthenticated()" class="logged-in">
+      <span class="logged-in-user">{{mainCTRL.username}}</span>
+      <button type="logout" ng-click="logout()">Log Out</button>
+    </div>
+  </div>
+</aside>
+<section>
+
+  <div ng-repeat="todo in mainCTRL.todos">
+    <li>{{todo.todo}}</li>
+  </div>
+
+</section>
+
+
+
+<!--
 <div class="logout" ng-if="isAuthenticated()">
-  <h1>Logged In</h1>
-  <button type="logout" ng-click="logout()">Log Out</button>
+
 </div>
 <br>
 
 
 <br>
-<form method="post" ng-submit="signup()" name="loginform">
-  <input type="text" name="signupuname" ng-model="signupname" placeholder="username">
-  <input type="password" name="password" placeholder="Password" ng-model="signuppass">
-  <button type="submit">Sign Up</button>
-</form>
+
 <br>
 <input type="text" name="todoPost" ng-model="todoval" value="">
 <button type="button" ng-click="todoPost(todoval)">todo</button>
 <br>
 <br>
-<button type="button" ng-click="getall()">get</button>
+<button type="button" ng-click="getall()">get</button> -->
