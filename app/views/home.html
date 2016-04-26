@@ -21,8 +21,13 @@
       <button type="logout" ng-click="mainCTRL.logout()">Log Out</button>
     </div>
   </div>
+  <h4 style="text-align:center">LISTS</h4>
+  <form style="text-align:center" method="post" ng-submit="mainCTRL.createList(listname)">
+    <input type="text" name="listname" ng-model="listname">
+    <button type="submit" class="btn btn-primary custom-btn">new list</button>
+  </form>
   <ul>
-    <li ng-repeat="list in mainCTRL.lists">
+    <li style="cursor: pointer" ng-click="mainCTRL.selectList(list)"ng-repeat="list in mainCTRL.lists">
       {{list.list_name}}
     </li>
   </ul>

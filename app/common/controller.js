@@ -5,7 +5,7 @@
         .controller('MainController', ['$scope','$uibModal', 'mainService', function($scope, $uibModal, mainService){
 
           var vm = this;
-          vm.listId = 0;
+          vm.listId = 5;
           vm.todos =[];
 
           vm.getTodos = function(){
@@ -33,8 +33,9 @@
             .then(function(res){
               vm.username = res.user;
               vm.lists = res.lists;
-              vm.listId = res.lists._id || res.lists[0]._id;
-              console.log(vm.lists);
+              if(vm.listId === 5){
+                vm.listId = res.lists._id || res.lists[0]._id;
+              }
             })
             .then(function(res){
               vm.getTodos();
@@ -44,7 +45,13 @@
           vm.createList = function(listName){
             mainService.createList(listName)
             .then(function(res){
+              vm.populate();
             });
+          };
+
+          vm.selectList = function(list){
+            vm.listId = list._id;
+            vm.getTodos();
           };
 
           vm.login = function(user, pword){

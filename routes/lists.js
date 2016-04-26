@@ -12,9 +12,9 @@ router.route('/create')
     var myid = req.user;
     var list = new List({
       user_id: myid,
-      list_name:req.body.listName
+      list_name:req.body.list_name
     });
-    todo.save(function(err){
+    list.save(function(err){
       res.status(200).send(list);
     });
   });

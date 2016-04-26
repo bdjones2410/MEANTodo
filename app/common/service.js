@@ -68,7 +68,7 @@
             };
 
             var createList = function(listname){
-              return $http.post('/list/create', {listName: listname})
+              return $http.post('/list/create', {list_name: listname})
               .success(function(res){
                 return res;
               });
