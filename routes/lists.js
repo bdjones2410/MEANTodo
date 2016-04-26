@@ -33,6 +33,7 @@ router.route('/getlists')
   .get(authToken, function(req, res){
     List.find({user_id: req.user}, function(err, lists){
         if(err) throw err;
+        //check to see if any lists exist, if not, create the default list
         if(lists.length != 0){
           return res.status(200).send(lists);
         }

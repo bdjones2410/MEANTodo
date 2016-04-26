@@ -7,6 +7,7 @@
           var vm = this;
           vm.listId = 5;
           vm.todos =[];
+          vm.selectedList;
 
           vm.getTodos = function(){
             mainService.getTodos(vm.listId).then(function(res){
@@ -35,6 +36,7 @@
               vm.lists = res.lists;
               if(vm.listId === 5){
                 vm.listId = res.lists._id || res.lists[0]._id;
+                vm.selectedList = res.lists.list_name || res.lists[0].list_name;
               }
             })
             .then(function(res){
@@ -51,6 +53,7 @@
 
           vm.selectList = function(list){
             vm.listId = list._id;
+            vm.selectedList = list.list_name;
             vm.getTodos();
           };
 
