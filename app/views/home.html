@@ -23,13 +23,24 @@
   </div>
 </aside>
 <section>
-  <div class="todos">
-    <input type="text" name="todoPost" ng-model="todoval" value="">
-    <button type="button" ng-click="mainCTRL.todoPost(todoval)">todo</button>
-  </div>
-  <div ng-repeat="todo in mainCTRL.todos">
-    <li>{{todo.todo}}</li>
-  </div>
+  <form method="post" class="post-todo-form" ng-submit="mainCTRL.todoPost(todoval)" name="todoPoster">
+    <div class="todos">
+      <input type="text" name="todoPost" ng-model="todoval" value="">
+      <button type="submit" class="btn btn-primary custom-btn">Do It</button>
+    </div>
+  </form>
+  <uib-accordion template-url="/views/todohead.html" close-others="false">
+    <uib-accordion-group template-url="/views/todo.html" ng-repeat="todo in mainCTRL.todos"  todo="{{todo}}">
+      <uib-accordion-heading>
+      <div class="custom-header">
+        <h4 >{{todo.todo}}</h4>
+        <div class="deltodo btn btn-danger" ng-click="$event.stopPropagation();$event.preventDefault(); $event.originalEvent.cancelBubble = true; mainCTRL.delete(todo)">Delete</div>
+      </div>
+      </uib-accordion-heading>
+        content
+    </uib-accordion-group>
+  </uib-accordion>
+
 
 </section>
 

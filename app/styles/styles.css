@@ -1,6 +1,9 @@
 /******************************
       OVER ALL
 ******************************/
+.nav, .pagination, .carousel, .panel-title a {
+  cursor: pointer; }
+
 * {
   box-sizing: border-box; }
 
@@ -77,7 +80,20 @@ aside {
 /******************************
         MAIN CONTENT
 ******************************/
+.panel-group {
+  width: 50%;
+  margin: 0 auto; }
+  .panel-group .panel {
+    border-radius: 0;
+    margin-top: 0; }
+  .panel-group .panel + .panel {
+    margin-top: 0; }
+
+.deltodo {
+  cursor: pointer; }
+
 section {
+  padding-top: 100px;
   background-color: blue;
   height: 100%;
   width: 75%;
@@ -88,3 +104,15 @@ section {
 
 .bigme {
   font-size: 4em; }
+
+.custom-header {
+  width: 100%; }
+  .custom-header h4 {
+    display: inline-block; }
+  .custom-header .deltodo {
+    float: right; }
+
+.post-todo-form {
+  margin: 0 auto;
+  text-align: center;
+  margin: 20px; }

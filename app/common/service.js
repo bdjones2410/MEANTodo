@@ -2,7 +2,7 @@
   'use strict';
     angular
       .module('mean-todo')
-        .factory('mainService', ['$http', '$auth', '$uibModal', function($http, $auth, $uibModal){
+        .factory('mainService', ['$http', '$auth', function($http, $auth){
 
             var login = function(user, pword){
                 return $auth.login({
@@ -59,12 +59,17 @@
               });
             };
 
+            var deleteTodo = function(todo){
+              return $http.delete('/todo/'+todo._id);
+            };
+
             return {
               login:login,
               logout: logout,
               auth: auth,
               createTodo: createTodo,
-              populate: populate
+              populate: populate,
+              deleteTodo: deleteTodo
             };
 
         }]);

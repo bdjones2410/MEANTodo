@@ -2,7 +2,12 @@
       OVER ALL
 ******************************/
 
-
+//added this for the angular-ui to work, removes need of empty href from
+//standard bootstrap cursors/pointers for things like tabs and pagination
+// and accordian
+.nav, .pagination, .carousel, .panel-title a {
+  cursor: pointer;
+}
 
 * {
   box-sizing: border-box;
@@ -59,10 +64,11 @@ aside {
 /******************************
         MAIN CONTENT
 ******************************/
-
+@import 'todos';
 
 
 section {
+  padding-top:100px;
   background-color: blue;
   height: 100%;
   width: 75%;
@@ -74,4 +80,18 @@ section {
 }
 .bigme {
   font-size:4em;
+}
+.custom-header {
+  width: 100%;
+  h4 {
+    display: inline-block;
+  }
+  .deltodo{
+    float: right;
+  }
+}
+.post-todo-form {
+  margin:0 auto;
+  text-align: center;
+  margin:20px;
 }

@@ -1,0 +1,15 @@
+.panel-group {
+  width: 50%;
+  margin: 0 auto;
+  .panel {
+    border-radius: 0;
+    margin-top:0;
+  }
+  .panel+ .panel {
+    margin-top: 0;
+  }
+}
+
+.deltodo {
+  cursor: pointer;
+}

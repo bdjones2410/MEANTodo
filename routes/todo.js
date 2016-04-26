@@ -26,4 +26,14 @@ router.route('/getall')
     });
   });
 
+router.route('/:id')
+  .delete(authToken, function(req, res){
+    Todo.findById(req.params.id, function(err, result){
+      if(err) throw err;
+      result.remove(function(){
+        res.status(200).send('removed One');
+      });
+    });
+  });
+
 module.exports = router;

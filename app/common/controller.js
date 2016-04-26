@@ -2,13 +2,20 @@
   'use strict';
     angular
       .module('mean-todo')
-        .controller('MainController', ['$uibModal', 'mainService', function($uibModal, mainService){
+        .controller('MainController', ['$scope','$uibModal', 'mainService', function($scope, $uibModal, mainService){
 
           var vm = this;
+
+          vm.delete = function(id){
+            mainService.deleteTodo(id).then(function(){
+              vm.populate();
+            });
+          };
 
           vm.todoPost = function(todo){
             mainService.createTodo(todo)
             .then(function(){
+              $scope.todoval = "";
               vm.populate();
             });
           };
