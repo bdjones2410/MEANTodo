@@ -5,7 +5,7 @@
     .controller('ModalInstanceCtrl', ['ModalService', '$scope', '$uibModalInstance',  function(ModalService, $scope, $uibModalInstance){
 
       var vm = this;
-      
+
       vm.created = false;
         $scope.created = function(){
           return vm.created;
@@ -17,7 +17,7 @@
             if(res.statusText){
               vm.created = true;
             }
-          })
+          });
         };
 
         $scope.closeModal = function(){

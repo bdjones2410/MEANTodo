@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-
+var List = require('../schemas/lists');
 var Todo = require('../schemas/todo');
 var authToken = require('./tokenMaker').authToken;
 var getID = require('./tokenMaker').getID;
@@ -10,6 +10,7 @@ router.route('/add')
     var myid = req.user;
     var todo = new Todo({
       user_id: myid,
+      list_id: req.body.list_id,
       todo: req.body.todo,
       notes: []
     });
@@ -18,9 +19,9 @@ router.route('/add')
     });
   });
 
-router.route('/getall')
+router.route('/getall/:listId')
   .get(authToken, function(req, res){
-    Todo.find({user_id: req.user}, function(err, todos){
+    Todo.find({list_id: req.params.listId}, function(err, todos){
         if(err) throw err;
         res.status(200).send(todos);
     });

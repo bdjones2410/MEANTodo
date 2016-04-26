@@ -6,6 +6,7 @@ var config = require('./config');
 var app = express();
 var authRoute = require('./routes/auth');
 var todoRoute = require('./routes/todo');
+var listRoute = require('./routes/lists');
 
 mongoose.connect(config.MONGO_URI, function(err){
   if(err) throw err;
@@ -20,6 +21,7 @@ app.set('port', process.env.PORT || 3000);
 
 app.use(express.static(path.join(__dirname, 'app')));
 
+app.use('/list', listRoute);
 app.use('/auth', authRoute);
 app.use('/todo', todoRoute);
 

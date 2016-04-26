@@ -3,6 +3,7 @@
     angular
       .module('mean-todo')
         .factory('mainService', ['$http', '$auth', function($http, $auth){
+            var listId = 0;
 
             var login = function(user, pword){
                 return $auth.login({
@@ -21,11 +22,11 @@
                   return retObj.user = res;
                 })
                 .then(function(){
-                   return getAll()
-                   .then(function(res){
-                     retObj.todos = res.data;
-                     return retObj;
-                   });
+                  return getLists()
+                  .then(function(res){
+                   retObj.lists = res;
+                   return retObj;
+                  });
                 });
               }
             };
@@ -38,6 +39,13 @@
               return $auth.isAuthenticated();
             };
 
+            var getLists = function(){
+              return $http.get('/list/getlists')
+              .then(function(res){
+                return res.data;
+              });
+            };
+
             var getUser = function(){
               return $http.get('/auth/curUser')
               .then(function(res){
@@ -45,15 +53,22 @@
               });
             };
 
-            var getAll = function(){
-              return $http.get('/todo/getall')
+            var getTodos = function(listId){
+              return $http.get('/todo/getall/'+listId)
               .success(function(res){
                 return res;
               });
             };
 
-            var createTodo = function(message){
-              return $http.post('/todo/add', {todo: message})
+            var createTodo = function(message, listId){
+              return $http.post('/todo/add', {todo: message, list_id:listId})
+              .success(function(res){
+                return res;
+              });
+            };
+
+            var createList = function(listname){
+              return $http.post('/list/create', {listName: listname})
               .success(function(res){
                 return res;
               });
@@ -69,7 +84,9 @@
               auth: auth,
               createTodo: createTodo,
               populate: populate,
-              deleteTodo: deleteTodo
+              getTodos: getTodos,
+              deleteTodo: deleteTodo,
+              createList: createList
             };
 
         }]);

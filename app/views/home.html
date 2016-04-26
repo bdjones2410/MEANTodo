@@ -21,6 +21,11 @@
       <button type="logout" ng-click="mainCTRL.logout()">Log Out</button>
     </div>
   </div>
+  <ul>
+    <li ng-repeat="list in mainCTRL.lists">
+      {{list.list_name}}
+    </li>
+  </ul>
 </aside>
 <section>
   <form method="post" class="post-todo-form" ng-submit="mainCTRL.todoPost(todoval)" name="todoPoster">

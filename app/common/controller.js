@@ -5,6 +5,14 @@
         .controller('MainController', ['$scope','$uibModal', 'mainService', function($scope, $uibModal, mainService){
 
           var vm = this;
+          vm.listId = 0;
+          vm.todos =[];
+
+          vm.getTodos = function(){
+            mainService.getTodos(vm.listId).then(function(res){
+              vm.todos = res.data;
+            });
+          };
 
           vm.delete = function(id){
             mainService.deleteTodo(id).then(function(){
@@ -13,10 +21,10 @@
           };
 
           vm.todoPost = function(todo){
-            mainService.createTodo(todo)
+            mainService.createTodo(todo, vm.listId)
             .then(function(){
               $scope.todoval = "";
-              vm.populate();
+              vm.getTodos(vm.listId);
             });
           };
 
@@ -24,7 +32,18 @@
             mainService.populate()
             .then(function(res){
               vm.username = res.user;
-              vm.todos = res.todos;
+              vm.lists = res.lists;
+              vm.listId = res.lists._id || res.lists[0]._id;
+              console.log(vm.lists);
+            })
+            .then(function(res){
+              vm.getTodos();
+            });
+          };
+
+          vm.createList = function(listName){
+            mainService.createList(listName)
+            .then(function(res){
             });
           };
 
