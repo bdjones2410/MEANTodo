@@ -24,7 +24,14 @@
                 .then(function(){
                   return getLists()
                   .then(function(res){
-                   retObj.lists = res;
+                    //check to see if its an array or object,
+                    //be sure to return an array of lists.
+                    if(res instanceof Array){
+                      retObj.lists = res;
+                    }else {
+                      retObj.lists = [];
+                      retObj.lists.push(res);
+                    }
                    return retObj;
                   });
                 });
