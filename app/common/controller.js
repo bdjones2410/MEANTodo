@@ -21,6 +21,20 @@
             });
           };
 
+          vm.deleteList = function(list){
+            if(list._id === vm.listId){
+              vm.listId = 5;
+            }
+            if(vm.lists.length === 1){
+              console.log("you need to have at least one list!");
+            }else{
+              mainService.deleteList(list).then(function(){
+                vm.populate();
+              });
+            }
+
+          };
+
           vm.todoPost = function(todo){
             mainService.createTodo(todo, vm.listId)
             .then(function(){
@@ -33,7 +47,7 @@
             mainService.populate()
             .then(function(res){
               vm.username = res.user;
-              vm.lists = res.lists;
+                vm.lists = res.lists;
               if(vm.listId === 5){
                 vm.listId = res.lists._id || res.lists[0]._id;
                 vm.selectedList = res.lists.list_name || res.lists[0].list_name;
@@ -47,6 +61,7 @@
           vm.createList = function(listName){
             mainService.createList(listName)
             .then(function(res){
+              $scope.listname = "";
               vm.populate();
             });
           };

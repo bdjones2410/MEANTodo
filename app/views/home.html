@@ -29,6 +29,7 @@
   <ul>
     <li style="cursor: pointer" ng-click="mainCTRL.selectList(list)"ng-repeat="list in mainCTRL.lists">
       {{list.list_name}}
+      <button class="btn btn-danger custom-btn" ng-click="$event.stopPropagation();$event.preventDefault(); $event.originalEvent.cancelBubble = true;mainCTRL.deleteList(list)">Delete List</button>
     </li>
   </ul>
 </aside>

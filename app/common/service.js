@@ -78,6 +78,10 @@
               return $http.delete('/todo/'+todo._id);
             };
 
+            var deleteList = function(list){
+              return $http.delete('/list/'+list._id);
+            };
+
             return {
               login:login,
               logout: logout,
@@ -86,7 +90,8 @@
               populate: populate,
               getTodos: getTodos,
               deleteTodo: deleteTodo,
-              createList: createList
+              createList: createList,
+              deleteList: deleteList
             };
 
         }]);
