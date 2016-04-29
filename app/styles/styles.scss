@@ -56,7 +56,7 @@ aside {
   height: 100%;
   width: 25%;
   float: left;
-
+  @import "lists";
 }
 
 
@@ -64,32 +64,16 @@ aside {
 /******************************
         MAIN CONTENT
 ******************************/
-@import 'todos';
-
+@import "todos";
 
 section {
-  padding-top:100px;
   background-color: blue;
   height: 100%;
   width: 75%;
   display: inline-block;
+  text-align: center;
 }
 
-.testing {
-  color: yellow;
-}
-.bigme {
-  font-size:4em;
-}
-.custom-header {
-  width: 100%;
-  h4 {
-    display: inline-block;
-  }
-  .deltodo{
-    float: right;
-  }
-}
 .post-todo-form {
   margin:0 auto;
   text-align: center;

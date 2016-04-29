@@ -35,6 +35,21 @@ router.route('/:id')
         res.status(200).send('removed One');
       });
     });
+  })
+
+  .put(authToken, function(req, res){
+    Todo.findById(req.params.id, function(err, result){
+      if(err) throw err;
+      result.todo = req.body.todo;
+      result.completed = req.body.completed;
+      result.compDate = req.body.compDate;
+      result.notes = req.body.notes;
+
+      result.save(function(err){
+        if(err) res.send(err);
+        res.send("ok");
+      });
+    });
   });
 
 module.exports = router;

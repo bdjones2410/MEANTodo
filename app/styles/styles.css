@@ -76,6 +76,20 @@ aside {
   aside .logged-in-user {
     display: block;
     font-size: 1.5em; }
+  aside ul {
+    list-style: none;
+    padding: 0;
+    text-align: center;
+    font-size: 1.5em; }
+    aside ul li {
+      font-size: 1.5em;
+      cursor: pointer;
+      margin: 10px 0; }
+      aside ul li .custom-ban {
+        margin-right: 20px;
+        color: red;
+        float: right;
+        margin-top: 5px; }
 
 /******************************
         MAIN CONTENT
@@ -92,25 +106,29 @@ aside {
 .deltodo {
   cursor: pointer; }
 
-section {
-  padding-top: 100px;
-  background-color: blue;
-  height: 100%;
-  width: 75%;
-  display: inline-block; }
-
-.testing {
-  color: yellow; }
-
-.bigme {
-  font-size: 4em; }
-
 .custom-header {
   width: 100%; }
   .custom-header h4 {
     display: inline-block; }
   .custom-header .deltodo {
     float: right; }
+
+.isComplete {
+  color: grey; }
+  .isComplete h4 {
+    text-decoration: line-through; }
+
+.custom-div {
+  display: inline-block;
+  float: left;
+  font-size: 2em; }
+
+section {
+  background-color: blue;
+  height: 100%;
+  width: 75%;
+  display: inline-block;
+  text-align: center; }
 
 .post-todo-form {
   margin: 0 auto;

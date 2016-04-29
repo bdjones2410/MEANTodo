@@ -80,9 +80,24 @@
 
           };
 
+          vm.toggleComplete = function(todo){
+            if(todo.completed){
+              todo.completed = false;
+              todo.compDate = null;
+            }else{
+              todo.completed = true;
+              todo.compDate = new Date();
+            }
+
+            mainService.toggleComplete(todo).then(function(res){
+              vm.populate();
+            });
+          };
+
           vm.logout = function(){
             mainService.logout().then(function(){
               vm.todos = [];
+              vm.lists = [];
             });
           };
 

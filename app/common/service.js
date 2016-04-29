@@ -82,6 +82,10 @@
               return $http.delete('/list/'+list._id);
             };
 
+            var toggleComplete = function(todo){
+              return $http.put('/todo/'+todo._id, todo);
+            };
+
             return {
               login:login,
               logout: logout,
@@ -91,7 +95,8 @@
               getTodos: getTodos,
               deleteTodo: deleteTodo,
               createList: createList,
-              deleteList: deleteList
+              deleteList: deleteList,
+              toggleComplete: toggleComplete
             };
 
         }]);

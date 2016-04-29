@@ -13,3 +13,26 @@
 .deltodo {
   cursor: pointer;
 }
+
+.custom-header {
+  width: 100%;
+  h4 {
+    display: inline-block;
+  }
+  .deltodo{
+    float: right;
+  }
+}
+
+.isComplete {
+  color: grey;
+  h4{
+    text-decoration: line-through;
+  }
+}
+
+.custom-div {
+  display: inline-block;
+  float:left;
+  font-size: 2em;
+}

@@ -29,7 +29,7 @@
   <ul>
     <li style="cursor: pointer" ng-click="mainCTRL.selectList(list)"ng-repeat="list in mainCTRL.lists">
       {{list.list_name}}
-      <button class="btn btn-danger custom-btn" ng-click="$event.stopPropagation();$event.preventDefault(); $event.originalEvent.cancelBubble = true;mainCTRL.deleteList(list)">Delete List</button>
+      <i class="fa fa-ban custom-ban" ng-click="$event.stopPropagation();$event.preventDefault(); $event.originalEvent.cancelBubble = true;mainCTRL.deleteList(list)" aria-hidden="true"></i>
     </li>
   </ul>
 </aside>
@@ -44,10 +44,17 @@
   <uib-accordion template-url="/views/todohead.html" close-others="false">
     <uib-accordion-group template-url="/views/todo.html" ng-repeat="todo in mainCTRL.todos"  todo="{{todo}}">
       <uib-accordion-heading>
-      <div class="custom-header">
-        <h4 >{{todo.todo}}</h4>
-        <div class="deltodo btn btn-danger" ng-click="$event.stopPropagation();$event.preventDefault(); $event.originalEvent.cancelBubble = true; mainCTRL.delete(todo)">Delete</div>
-      </div>
+        <div ng-class="{isComplete: todo.completed}">
+          <div class="custom-div" ng-click="$event.stopPropagation();$event.preventDefault(); $event.originalEvent.cancelBubble = true; mainCTRL.toggleComplete(todo)">
+            <i ng-show="{{todo.completed}}" class="fa fa-check-circle-o custom-icon" aria-hidden="true"></i>
+            <i ng-hide="{{todo.completed}}" class="fa fa-circle-o custom-icon" aria-hidden="true"></i>
+          </div>
+
+          <div class="custom-header">
+            <h4 >{{todo.todo}}</h4>
+            <div class="deltodo btn btn-danger" ng-click="$event.stopPropagation();$event.preventDefault(); $event.originalEvent.cancelBubble = true; mainCTRL.delete(todo)">Delete</div>
+          </div>
+        </div>
       </uib-accordion-heading>
         content
     </uib-accordion-group>
