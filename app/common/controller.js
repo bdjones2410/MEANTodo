@@ -75,6 +75,8 @@
           vm.login = function(user, pword){
             mainService.login(user, pword)
             .then(function(res){
+              $scope.uname = "";
+              $scope.password = "";
               vm.populate();
             });
 
@@ -88,8 +90,7 @@
               todo.completed = true;
               todo.compDate = new Date();
             }
-
-            mainService.toggleComplete(todo).then(function(res){
+            mainService.updateTodo(todo).then(function(res){
               vm.populate();
             });
           };

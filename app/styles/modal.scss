@@ -1,13 +1,20 @@
 /******************************
         SIGN UP MODAL
 ******************************/
- .modal-todo {
-   color: black;
-   text-align: center;
-   padding: 30px;
-   input {
-     display: inherit;
-     margin:5px auto;
-     color: black;
-   }
- }
+.modal-content {
+  padding: 20px;
+  h1 {
+    text-align: center;
+  }
+  form {
+    box-shadow: 0px 0px 2px #ccc;
+    padding: 50px 20px;
+    }
+}
+
+.closeBox {
+  cursor: pointer;
+  font-size:2em;
+  color:red;
+  float:right;
+}

@@ -19,6 +19,17 @@
             }
           });
         };
+        $scope.passwordsMatch = function(){
+          if($scope.signuppass){
+            return $scope.signuppass === $scope.confirmpass;
+          }
+        };
+
+        $scope.noMatch = function(){
+          if($scope.signuppass){
+            return $scope.signuppass !== $scope.confirmpass;
+          }
+        };
 
         $scope.closeModal = function(){
           $uibModalInstance.close();

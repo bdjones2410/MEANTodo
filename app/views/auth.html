@@ -1,0 +1,33 @@
+  <!-- If a user is not logged in, display the log in options-->
+  <div ng-hide="mainCTRL.isAuthenticated()" class="main-log">
+    <form method="post" ng-submit="mainCTRL.login(uname, password)" name="loginform">
+      <div class="form-group">
+        <label for="unameInput">UserName</label>
+        <div class="input-group">
+          <span class="input-group-addon">
+            <i class="fa fa-user" aria-hidden="true"></i>
+          </span>
+          <input id="unameInput" type="text" class="form-control" name="uname" ng-model="uname" placeholder="username">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="passInput">Password</label>
+        <div class="input-group">
+          <span class="input-group-addon">
+            <i class="fa fa-unlock-alt" aria-hidden="true"></i>
+          </span>
+          <input id="passInput" type="password" class="form-control" name="password" placeholder="Password" ng-model="password">
+        </div>
+      </div>
+        <button type="submit" class="btn btn-block btn-primary custom-btn">Log in</button>
+    </form>
+
+    <!--If they want to sign up, this opens a modal with signup options-->
+    <div class="sign-up">
+      <span>New User? <a ng-click="mainCTRL.open()">Sign Up</a></span>
+    </div>
+    <!--If they want to log in as a test user this will one click log in-->
+    <div class="sign-up test-user">
+      or log in as test user.
+    </div>
+  </div>

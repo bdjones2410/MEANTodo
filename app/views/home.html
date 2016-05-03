@@ -1,26 +1,19 @@
 <aside>
-  <div class="login">
+  <div class="login" ng-controller="MainController">
+    <!--Main Icon changes color based on logged in status-->
     <div class="main-icon" ng-class="{blueman: mainCTRL.isAuthenticated()}">
       <i id="user-icon-main" class="fa fa-user" aria-hidden="true"></i>
     </div>
-    <div ng-hide="mainCTRL.isAuthenticated()" class="main-log">
-      <form   method="post" ng-submit="mainCTRL.login(uname, password)" name="loginform">
-          <input type="text" name="uname" ng-model="uname" placeholder="username">
-          <input type="password" name="password" placeholder="Password" ng-model="password">
-          <button type="submit" class="btn btn-primary custom-btn">Log in</button>
-      </form>
-      <div class="sign-up">
-        <span>New User? <a ng-click="mainCTRL.open()">Sign Up</a></span>
-      </div>
-      <div class="sign-up test-user">
-        or log in as test user.
-      </div>
-    </div>
+
+    <user-login></user-login>
+
+    <!--if a user is logged in, hide log in options, display logged in user-->
     <div ng-if="mainCTRL.isAuthenticated()" class="logged-in">
       <span class="logged-in-user">{{mainCTRL.username}}</span>
       <button type="logout" ng-click="mainCTRL.logout()">Log Out</button>
     </div>
   </div>
+
   <h4 style="text-align:center">LISTS</h4>
   <form style="text-align:center" method="post" ng-submit="mainCTRL.createList(listname)">
     <input type="text" name="listname" ng-model="listname">

@@ -4,11 +4,18 @@
 
 .main-icon {
   text-align: center;
-  color: grey;
+  color: #eee;
+  border-radius: 1000px;
+  background-color: #ccc;
+  border: 5px solid;
+  margin: 0 auto;
+  width: 125px;
+  height: 125px;
 }
+
 #user-icon-main {
   font-size: 7em;
-  margin-top:15px;
+  margin-top:5px;
 }
 .main-log {
   text-align: center;
@@ -26,7 +33,9 @@ input {
   width: 33%;
 }
 .blueman {
-  color: blue;
+  color: #75DCFF;
+  text-shadow: 1px 4px 4px #009FD4;
+  background-color: #00bfff;
 }
 .logged-in {
   text-align: center;

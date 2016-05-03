@@ -19,9 +19,9 @@ body {
   margin: 0; }
   body form {
     margin-bottom: 15px; }
-    body form .custom-btn {
-      vertical-align: inherit;
-      padding: 2px 6px 3px; }
+
+.custom-btn {
+  margin-top: 20px; }
 
 /******************************
           MODAL
@@ -29,14 +29,19 @@ body {
 /******************************
         SIGN UP MODAL
 ******************************/
-.modal-todo {
-  color: black;
-  text-align: center;
-  padding: 30px; }
-  .modal-todo input {
-    display: inherit;
-    margin: 5px auto;
-    color: black; }
+.modal-content {
+  padding: 20px; }
+  .modal-content h1 {
+    text-align: center; }
+  .modal-content form {
+    box-shadow: 0px 0px 2px #ccc;
+    padding: 50px 20px; }
+
+.closeBox {
+  cursor: pointer;
+  font-size: 2em;
+  color: red;
+  float: right; }
 
 /******************************
         ASIDE
@@ -54,10 +59,16 @@ aside {
   float: left; }
   aside .main-icon {
     text-align: center;
-    color: grey; }
+    color: #eee;
+    border-radius: 1000px;
+    background-color: #ccc;
+    border: 5px solid;
+    margin: 0 auto;
+    width: 125px;
+    height: 125px; }
   aside #user-icon-main {
     font-size: 7em;
-    margin-top: 15px; }
+    margin-top: 5px; }
   aside .main-log {
     text-align: center;
     margin-top: 15px; }
@@ -70,7 +81,9 @@ aside {
   aside input {
     width: 33%; }
   aside .blueman {
-    color: blue; }
+    color: #75DCFF;
+    text-shadow: 1px 4px 4px #009FD4;
+    background-color: #00bfff; }
   aside .logged-in {
     text-align: center; }
   aside .logged-in-user {

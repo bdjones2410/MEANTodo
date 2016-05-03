@@ -8,7 +8,6 @@
 .nav, .pagination, .carousel, .panel-title a {
   cursor: pointer;
 }
-
 * {
   box-sizing: border-box;
 }
@@ -24,11 +23,11 @@ body {
   margin: 0;
   form {
     margin-bottom:15px;
-    .custom-btn {
-      vertical-align: inherit;
-      padding:2px 6px 3px
-    }
   }
+}
+
+.custom-btn {
+  margin-top:20px;
 }
 
 
