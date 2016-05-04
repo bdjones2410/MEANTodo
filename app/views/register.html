@@ -3,6 +3,9 @@
   <div ng-hide="created()">
     <h1>Register a new Doer</h1>
     <form id="register-form" method="post" ng-submit="signup(signupname, signuppass)" name="loginform">
+
+      <uib-alert ng-repeat="alert in alerts" type="warning" close="closeAlert($index)">{{alert.message}}</uib-alert>
+
       <div class="form-group">
         <label for="signName">Username</label>
         <div class="input-group">
@@ -13,7 +16,7 @@
         </div>
       </div>
 
-      <div class="form-group" ng-class="{'has-success': passwordsMatch(), 'has-error': noMatch()}">
+      <div class="form-group" ng-class="{'has-success': ModalInstanceCtrl.passwordsMatch(), 'has-error': noMatch()}">
         <label for="firstPass">Password</label>
         <div class="input-group">
           <span class="input-group-addon">
@@ -23,7 +26,7 @@
         </div>
       </div>
 
-      <div class="form-group" ng-class="{'has-success': passwordsMatch(), 'has-error': noMatch()}">
+      <div class="form-group" ng-class="{'has-success': ModalInstanceCtrl.passwordsMatch(), 'has-error': noMatch()}">
         <label for="secondPass">Confirm Password</label>
         <div class="input-group">
           <span class="input-group-addon">
@@ -33,7 +36,7 @@
         </div>
       </div>
 
-      <button type="submit" class="btn btn-block btn-primary btn-lg custom-btn">Register</button>
+      <button type="submit" class="btn btn-block btn-primary btn-lg custom-btn" ng-class="{'disabled':!passwordsMatch()}">Register</button>
 
       <button type="cancel" ng-click="$event.stopPropagation();$event.preventDefault(); $event.originalEvent.cancelBubble = true;closeModal()" class="btn btn-default btn-block btn-lg custom-btn">Cancel</button>
     </form>

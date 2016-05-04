@@ -46,7 +46,9 @@ router.route('/signup')
         password: req.body.password
       });
       user.save(function(err){
-        if(err) throw err;
+        if(err){
+          console.log(err);
+        }
         res.json({
           token: genToken(user)
         });

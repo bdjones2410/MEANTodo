@@ -5,6 +5,7 @@
     .controller('ModalInstanceCtrl', ['ModalService', '$scope', '$uibModalInstance',  function(ModalService, $scope, $uibModalInstance){
 
       var vm = this;
+      $scope.alerts = [];
 
       vm.created = false;
         $scope.created = function(){
@@ -12,16 +13,29 @@
         };
 
         $scope.signup = function(user, pword){
-          ModalService.signup(user, pword)
-          .then(function(res){
-            if(res.statusText){
-              vm.created = true;
-            }
-          });
+          if(vm.passwordsMatch()){
+            ModalService.signup(user, pword)
+            .then(function(res){
+              if(res.statusText !== 'Conflict'){
+                vm.created = true;
+              }else{
+                $scope.alerts.push(res.data);
+              }
+            });
+          }else{
+            $scope.alerts.push({message:"Be sure your password is entered correctly and confirmed"});
+          }
         };
-        $scope.passwordsMatch = function(){
+
+        $scope.closeAlert = function(index) {
+          $scope.alerts.splice(index, 1);
+        };
+
+        vm.passwordsMatch = function(){
           if($scope.signuppass){
             return $scope.signuppass === $scope.confirmpass;
+          }else{
+            return false;
           }
         };
 

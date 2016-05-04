@@ -1,12 +1,28 @@
-.panel-group {
-  width: 50%;
+.todo-group {
+  width: 60%;
   margin: 0 auto;
-  .panel {
-    border-radius: 0;
-    margin-top:0;
+  .todo-item {
+    text-align: center;
+    .todo-container{
+      width:100%;
+    }
+    div {
+      display:inline-block;
+      .custom-div {
+        margin-top:5px;
+        float:left;
+        font-size: 2em;
+      }
+      .deltodo {
+        float:right;
+      }
+    }
   }
-  .panel+ .panel {
-    margin-top: 0;
+}
+.uppertodos {
+  overflow: auto;
+  h1{
+    font-size:5em;
   }
 }
 
@@ -14,25 +30,9 @@
   cursor: pointer;
 }
 
-.custom-header {
-  width: 100%;
-  h4 {
-    display: inline-block;
-  }
-  .deltodo{
-    float: right;
-  }
-}
-
 .isComplete {
   color: grey;
   h4{
     text-decoration: line-through;
   }
-}
-
-.custom-div {
-  display: inline-block;
-  float:left;
-  font-size: 2em;
 }

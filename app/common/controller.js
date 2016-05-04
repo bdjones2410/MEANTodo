@@ -75,8 +75,7 @@
           vm.login = function(user, pword){
             mainService.login(user, pword)
             .then(function(res){
-              $scope.uname = "";
-              $scope.pword = "";
+              $scope.pword= "";
               vm.populate();
             });
           };
@@ -98,6 +97,7 @@
             mainService.logout().then(function(){
               vm.todos = [];
               vm.lists = [];
+              vm.listId = 5;
             });
           };
 

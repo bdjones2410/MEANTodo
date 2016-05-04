@@ -1,22 +1,28 @@
 /******************************
       OVER ALL
 ******************************/
-
 //added this for the angular-ui to work, removes need of empty href from
 //standard bootstrap cursors/pointers for things like tabs and pagination
 // and accordian
 .nav, .pagination, .carousel, .panel-title a {
   cursor: pointer;
 }
+//pull in font from google.
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,300,500,700);
+
 * {
   box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
 }
+
 a {
   cursor: pointer;
 }
+
 html {
   height: 100%;
 }
+
 body {
   background-color: black;
   height: 100%;

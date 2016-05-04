@@ -1,12 +1,45 @@
 <aside>
-  <div class="login" ng-controller="MainController">
+  <div class="login">
 
     <!--Main Icon changes color based on logged in status-->
     <div class="main-icon" ng-class="{blueman: mainCTRL.isAuthenticated()}">
       <i id="user-icon-main" class="fa fa-user" aria-hidden="true"></i>
     </div>
 
-    <user-login></user-login>
+    <!-- If a user is not logged in, display the log in options-->
+    <div ng-hide="mainCTRL.isAuthenticated()" class="main-log">
+      <form method="post" ng-submit="mainCTRL.login(uname, pword)" name="loginform">
+        <div class="form-group">
+          <label for="unameInput">UserName</label>
+          <div class="input-group">
+            <span class="input-group-addon">
+              <i class="fa fa-user" aria-hidden="true"></i>
+            </span>
+            <input id="unameInput" type="text" class="form-control" name="uname" ng-model="uname" placeholder="username">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="passInput">Password</label>
+          <div class="input-group">
+            <span class="input-group-addon">
+              <i class="fa fa-unlock-alt" aria-hidden="true"></i>
+            </span>
+            <input id="passInput" type="password" class="form-control" name="password" placeholder="Password" ng-model="pword">
+          </div>
+        </div>
+          <button type="submit" class="btn btn-block btn-primary custom-btn">Log in</button>
+      </form>
+
+      <!--If they want to sign up, this opens a modal with signup options-->
+      <div class="sign-up">
+        <span>New Doer? <a ng-click="mainCTRL.open()">Sign Up</a></span>
+      </div>
+      <!--If they want to log in as a test user this will one click log in-->
+      <!-- <div class="sign-up test-user">
+          //coming soon
+        or log in as test user.
+      </div> -->
+    </div>
 
     <!--if a user is logged in, hide log in options, display logged in user-->
     <div ng-if="mainCTRL.isAuthenticated()" class="logged-in">
@@ -15,6 +48,7 @@
     </div>
   </div>
 
+<div class="upperlists" ng-if="mainCTRL.isAuthenticated()">
   <h4 style="text-align:center">LISTS</h4>
 
   <form style="text-align:center" class="form-inline"method="post" ng-submit="mainCTRL.createList(listname)">
@@ -23,6 +57,7 @@
       <button type="submit" class="btn btn-primary">+</button>
     </div>
   </form>
+</div>
 
   <ul>
     <li style="cursor: pointer" ng-click="mainCTRL.selectList(list)"ng-repeat="list in mainCTRL.lists">
@@ -35,16 +70,37 @@
 
 </aside>
 <section>
-  <h1>{{mainCTRL.selectedList}}</h1>
+  <div class="uppertodos" ng-if="mainCTRL.isAuthenticated()">
+    <h1>{{mainCTRL.selectedList}}</h1>
 
-  <form method="post" class="post-todo-form form-inline" ng-submit="mainCTRL.todoPost(todoval)" name="todoPoster">
-    <div class="todos form-group">
-      <input type="text" name="todoPost" ng-model="todoval" class="form-control" value="">
-      <button type="submit" class="btn btn-default">Do It</button>
-    </div>
-  </form>
+    <form method="post" class="post-todo-form form-inline" ng-submit="mainCTRL.todoPost(todoval)" name="todoPoster">
+      <div class="todos form-group">
+        <input type="text" name="todoPost" ng-model="todoval" class="form-control" value="">
+        <button type="submit" class="btn btn-default">Do It</button>
+      </div>
+    </form>
+  </div>
 
-  <uib-accordion template-url="/views/todohead.html" close-others="false">
+  <ul class="list-group todo-group">
+    <li class="list-group-item todo-item" ng-repeat="todo in mainCTRL.todos">
+
+      <div class="todo-container"ng-class="{isComplete: todo.completed}">
+
+        <div ng-click="mainCTRL.toggleComplete(todo)" class="toggle-complete-div custom-div fa" ng-class="{'fa-check-circle-o':todo.completed, 'fa-circle-o':!todo.completed}">
+        </div>
+
+        <div class="todoInfo">
+          <h4>{{todo.todo}}</h4>
+        </div>
+
+        <div class="deltodo btn btn-danger" ng-click=" mainCTRL.delete(todo)">
+          Delete
+        </div>
+      </div>
+    </li>
+  </ul>
+
+  <!-- <uib-accordion template-url="/views/todohead.html" close-others="false">
     <uib-accordion-group template-url="/views/todo.html" ng-repeat="todo in mainCTRL.todos"  todo="{{todo}}">
       <uib-accordion-heading>
         <div ng-class="{isComplete: todo.completed}">
@@ -61,7 +117,7 @@
       </uib-accordion-heading>
         content
     </uib-accordion-group>
-  </uib-accordion>
+  </uib-accordion> -->
 
 
 </section>

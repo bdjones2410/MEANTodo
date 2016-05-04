@@ -9,7 +9,7 @@
             uname: user,
             password: pword
           })
-          .success(function(res){
+          .catch(function(res){
             return res;
           });
         };
