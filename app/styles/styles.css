@@ -53,7 +53,7 @@ aside {
   /******************************
           TD LISTS
 ******************************/
-  background-color: white;
+  background-color: #FEFEFE;
   height: 100%;
   width: 25%;
   float: left; }
@@ -77,7 +77,7 @@ aside {
   aside .login {
     padding-bottom: 30px;
     margin: 10px;
-    border-bottom: 1px solid grey; }
+    border-bottom: 2px solid #DDDDDD; }
   aside input {
     width: 33%; }
   aside .blueman {
@@ -99,10 +99,14 @@ aside {
       cursor: pointer;
       margin: 10px 0; }
       aside ul li .custom-ban {
-        margin-right: 20px;
+        font-size: 0.5em;
         color: red;
+        vertical-align: middle;
+        margin-top: -50%; }
+      aside ul li .ban-box {
+        align-content: inherit;
         float: right;
-        margin-top: 5px; }
+        margin-right: 20px; }
 
 /******************************
         MAIN CONTENT
@@ -137,7 +141,7 @@ aside {
   font-size: 2em; }
 
 section {
-  background-color: blue;
+  background-color: #EFEFEF;
   height: 100%;
   width: 75%;
   display: inline-block;

@@ -47,7 +47,7 @@ router.route('/getlists')
         }
         var defaultList = new List({
           user_id: req.user,
-          list_name: "Mean List"
+          list_name: "MEAN List"
         });
         defaultList.save(function(err){
          res.send(defaultList);

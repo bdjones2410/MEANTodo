@@ -76,10 +76,9 @@
             mainService.login(user, pword)
             .then(function(res){
               $scope.uname = "";
-              $scope.password = "";
+              $scope.pword = "";
               vm.populate();
             });
-
           };
 
           vm.toggleComplete = function(todo){

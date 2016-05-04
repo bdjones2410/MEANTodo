@@ -8,10 +8,15 @@ ul {
     cursor: pointer;
     margin: 10px 0;
     .custom-ban {
-      margin-right: 20px;
+      font-size: 0.5em;
       color: red;
+      vertical-align: middle;
+      margin-top: -50%;
+    }
+    .ban-box {
+      align-content: inherit;
       float: right;
-      margin-top: 5px;
+      margin-right: 20px;
     }
   }
 }
