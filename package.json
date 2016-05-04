@@ -5,16 +5,16 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "npm compsass & nodemon server.js",
+    "postinstall": "bower cache clean && bower install",
+    "start":"node server.js",
     "compsass": "node-sass ./app/styles/styles.scss ./app/styles/styles.css"
   },
   "author": "",
   "license": "ISC",
-  "devDependencies": {
-    "express": "^4.13.4"
-  },
   "dependencies": {
     "bcryptjs": "^2.3.0",
+    "express": "^4.13.4"
+    "bower": "~1.3.3",
     "body-parser": "^1.15.0",
     "jwt-simple": "^0.5.0",
     "moment": "^2.12.0",
