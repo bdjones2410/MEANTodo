@@ -20,9 +20,7 @@ app.use(bodyParser.urlencoded({
 app.set('port', process.env.PORT || 3000);
 
 app.use(express.static(path.join(__dirname, 'app')));
-app.get('/', function(req, res){
-  res.sendFile('app');
-});
+
 app.use('/list', listRoute);
 app.use('/auth', authRoute);
 app.use('/todo', todoRoute);
