@@ -60,7 +60,7 @@
 </div>
 
   <ul>
-    <li style="cursor: pointer" ng-click="mainCTRL.selectList(mainCTRL.list)"ng-repeat="list in mainCTRL.lists">
+    <li style="cursor: pointer" ng-click="mainCTRL.selectList(list)"ng-repeat="list in mainCTRL.lists">
       {{list.list_name}}
       <div class="ban-box">
         <i class="fa fa-ban custom-ban" ng-click="$event.stopPropagation();$event.preventDefault(); $event.originalEvent.cancelBubble = true;mainCTRL.deleteList(list)" aria-hidden="true"></i>
