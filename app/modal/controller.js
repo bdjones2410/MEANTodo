@@ -40,7 +40,7 @@
         };
 
         $scope.noMatch = function(){
-          if($scope.signuppass){
+          if($scope.signuppass || $scope.signuppass.length >=1){
             return $scope.signuppass !== $scope.confirmpass;
           }
         };

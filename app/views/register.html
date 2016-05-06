@@ -36,7 +36,7 @@
         </div>
       </div>
 
-      <button type="submit" class="btn btn-block btn-primary btn-lg custom-btn" ng-class="{'disabled':!passwordsMatch()}">Register</button>
+      <button type="submit" class="btn btn-block btn-primary btn-lg custom-btn" ng-class="{'disabled':noMatch()}">Register</button>
 
       <button type="cancel" ng-click="$event.stopPropagation();$event.preventDefault(); $event.originalEvent.cancelBubble = true;closeModal()" class="btn btn-default btn-block btn-lg custom-btn">Cancel</button>
     </form>
@@ -44,6 +44,6 @@
   </div>
   <div ng-show="created()">
     <h1>Sucessfully created!</h1>
-    <button ng-click="closeModal()">OK</button>
+    <button class="btn btn-primary btn-block btn-lg custom-btn"ng-click="closeModal()">OK</button>
   </div>
 </div>

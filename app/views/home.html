@@ -8,14 +8,14 @@
 
     <!-- If a user is not logged in, display the log in options-->
     <div ng-hide="mainCTRL.isAuthenticated()" class="main-log">
-      <form method="post" ng-submit="mainCTRL.login(uname, pword)" name="loginform">
+      <form method="post" ng-submit="mainCTRL.login(mainCTRL.uname, mainCTRL.pword)" name="loginform">
         <div class="form-group">
           <label for="unameInput">UserName</label>
           <div class="input-group">
             <span class="input-group-addon">
               <i class="fa fa-user" aria-hidden="true"></i>
             </span>
-            <input id="unameInput" type="text" class="form-control" name="uname" ng-model="uname" placeholder="username">
+            <input id="unameInput" type="text" class="form-control" name="uname" ng-model="mainCTRL.uname" placeholder="username">
           </div>
         </div>
         <div class="form-group">
@@ -24,7 +24,7 @@
             <span class="input-group-addon">
               <i class="fa fa-unlock-alt" aria-hidden="true"></i>
             </span>
-            <input id="passInput" type="password" class="form-control" name="password" placeholder="Password" ng-model="pword">
+            <input id="passInput" type="password" class="form-control" name="password" placeholder="Password" ng-model="mainCTRL.pword">
           </div>
         </div>
           <button type="submit" class="btn btn-block btn-primary custom-btn">Log in</button>
@@ -51,16 +51,16 @@
 <div class="upperlists" ng-if="mainCTRL.isAuthenticated()">
   <h4 style="text-align:center">LISTS</h4>
 
-  <form style="text-align:center" class="form-inline"method="post" ng-submit="mainCTRL.createList(listname)">
+  <form style="text-align:center" class="form-inline"method="post" ng-submit="mainCTRL.createList(mainCTRL.listname)" name="listform">
     <div class="form-group">
-      <input type="text" name="listname" class="form-control" ng-model="listname">
+      <input type="text" name="listname" class="form-control" maxlength="12" ng-model="mainCTRL.listname">
       <button type="submit" class="btn btn-primary">+</button>
     </div>
   </form>
 </div>
 
   <ul>
-    <li style="cursor: pointer" ng-click="mainCTRL.selectList(list)"ng-repeat="list in mainCTRL.lists">
+    <li style="cursor: pointer" ng-click="mainCTRL.selectList(mainCTRL.list)"ng-repeat="list in mainCTRL.lists">
       {{list.list_name}}
       <div class="ban-box">
         <i class="fa fa-ban custom-ban" ng-click="$event.stopPropagation();$event.preventDefault(); $event.originalEvent.cancelBubble = true;mainCTRL.deleteList(list)" aria-hidden="true"></i>
@@ -73,12 +73,13 @@
   <div class="uppertodos" ng-if="mainCTRL.isAuthenticated()">
     <h1>{{mainCTRL.selectedList}}</h1>
 
-    <form method="post" class="post-todo-form form-inline" ng-submit="mainCTRL.todoPost(todoval)" name="todoPoster">
+    <form method="post" class="post-todo-form form-inline" ng-submit="mainCTRL.todoPost(mainCTRL.todoval)" name="todoposter">
       <div class="todos form-group">
-        <input type="text" name="todoPost" ng-model="todoval" class="form-control" value="">
+        <input type="text" name="todoPost" ng-model="mainCTRL.todoval" class="form-control" value="">
         <button type="submit" class="btn btn-default">Do It</button>
       </div>
     </form>
+
   </div>
 
   <ul class="list-group todo-group">
@@ -99,33 +100,4 @@
       </div>
     </li>
   </ul>
-
-  <!-- <uib-accordion template-url="/views/todohead.html" close-others="false">
-    <uib-accordion-group template-url="/views/todo.html" ng-repeat="todo in mainCTRL.todos"  todo="{{todo}}">
-      <uib-accordion-heading>
-        <div ng-class="{isComplete: todo.completed}">
-          <div class="custom-div" ng-click="$event.stopPropagation();$event.preventDefault(); $event.originalEvent.cancelBubble = true; mainCTRL.toggleComplete(todo)">
-            <i ng-show="{{todo.completed}}" class="fa fa-check-circle-o custom-icon" aria-hidden="true"></i>
-            <i ng-hide="{{todo.completed}}" class="fa fa-circle-o custom-icon" aria-hidden="true"></i>
-          </div>
-
-          <div class="custom-header">
-            <h4 >{{todo.todo}}</h4>
-            <div class="deltodo btn btn-danger" ng-click="$event.stopPropagation();$event.preventDefault(); $event.originalEvent.cancelBubble = true; mainCTRL.delete(todo)">Delete</div>
-          </div>
-        </div>
-      </uib-accordion-heading>
-        content
-    </uib-accordion-group>
-  </uib-accordion> -->
-
-
 </section>
-
-
-
-<!--
-
-<br>
-<br>
-<button type="button" ng-click="getall()">get</button> -->

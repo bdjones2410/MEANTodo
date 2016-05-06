@@ -11,7 +11,7 @@
 
           vm.getTodos = function(){
             mainService.getTodos(vm.listId).then(function(res){
-              vm.todos = res.data;
+              vm.todos = res.data.reverse();
             });
           };
 
@@ -34,12 +34,12 @@
             }
 
           };
-
           vm.todoPost = function(todo){
+            console.log(vm);
             mainService.createTodo(todo, vm.listId)
             .then(function(){
-              $scope.todoval = "";
               vm.getTodos(vm.listId);
+              vm.todoval = "";
             });
           };
 
@@ -61,7 +61,7 @@
           vm.createList = function(listName){
             mainService.createList(listName)
             .then(function(res){
-              $scope.listname = "";
+              vm.listname = "";
               vm.populate();
             });
           };
@@ -75,7 +75,7 @@
           vm.login = function(user, pword){
             mainService.login(user, pword)
             .then(function(res){
-              $scope.pword= "";
+              vm.pword= "";
               vm.populate();
             });
           };
