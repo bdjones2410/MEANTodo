@@ -16,8 +16,9 @@
           };
 
           vm.delete = function(id){
-            mainService.deleteTodo(id).then(function(){
-              vm.populate();
+            mainService.deleteTodo(id).then(function(res){
+              console.log(res);
+              vm.todos.splice(vm.todos.indexOf(id), 1);
             });
           };
 
@@ -35,10 +36,10 @@
 
           };
           vm.todoPost = function(todo){
-            console.log(vm);
+
             mainService.createTodo(todo, vm.listId)
-            .then(function(){
-              vm.getTodos(vm.listId);
+            .then(function(res){
+              vm.todos.unshift(res.data);
               vm.todoval = "";
             });
           };
@@ -89,7 +90,7 @@
               todo.compDate = new Date();
             }
             mainService.updateTodo(todo).then(function(res){
-              vm.populate();
+              
             });
           };
 
