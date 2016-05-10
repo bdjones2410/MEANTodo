@@ -1,6 +1,7 @@
 .todo-group {
   width: 60%;
   margin: 0 auto;
+  box-shadow: 0 8px 2px -6px grey;
   .todo-item {
     text-align: center;
     .todo-container{
@@ -20,9 +21,15 @@
   }
 }
 .uppertodos {
-  overflow: auto;
+  background: #3498DB;
+  overflow: hidden;
+  margin-bottom: 30px;
+  border-left: 2px solid #EBEEF1;
+  border-bottom: 2px solid grey;
   h1{
     font-size:5em;
+    color: #ECF0F1;
+    text-shadow: 0px 1px 1px #34495E;
   }
 }
 

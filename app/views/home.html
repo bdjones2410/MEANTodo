@@ -54,7 +54,7 @@
   <form style="text-align:center" class="form-inline"method="post" ng-submit="mainCTRL.createList(mainCTRL.listname)" name="listform">
     <div class="form-group">
       <input type="text" name="listname" class="form-control" maxlength="12" ng-model="mainCTRL.listname">
-      <button type="submit" class="btn btn-primary">+</button>
+      <button type="submit" class="btn btn-default"><i class="fa fa-plus add-green" aria-hidden="true"></i></button>
     </div>
   </form>
 </div>
@@ -76,7 +76,7 @@
     <form method="post" class="post-todo-form form-inline" ng-submit="mainCTRL.todoPost(mainCTRL.todoval)" name="todoposter">
       <div class="todos form-group">
         <input type="text" name="todoPost" ng-model="mainCTRL.todoval" class="form-control" value="">
-        <button type="submit" class="btn btn-default">Do It</button>
+        <button type="submit" class="btn btn-default"><i class="fa fa-plus add-green" aria-hidden="true"></i></button>
       </div>
     </form>
 

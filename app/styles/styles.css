@@ -25,6 +25,9 @@ body {
 .custom-btn {
   margin-top: 20px; }
 
+.add-green {
+  color: #1ABC9C; }
+
 /******************************
           MODAL
 ******************************/
@@ -115,7 +118,8 @@ aside {
 ******************************/
 .todo-group {
   width: 60%;
-  margin: 0 auto; }
+  margin: 0 auto;
+  box-shadow: 0 8px 2px -6px grey; }
   .todo-group .todo-item {
     text-align: center; }
     .todo-group .todo-item .todo-container {
@@ -130,9 +134,15 @@ aside {
         float: right; }
 
 .uppertodos {
-  overflow: auto; }
+  background: #3498DB;
+  overflow: hidden;
+  margin-bottom: 30px;
+  border-left: 2px solid #EBEEF1;
+  border-bottom: 2px solid grey; }
   .uppertodos h1 {
-    font-size: 5em; }
+    font-size: 5em;
+    color: #ECF0F1;
+    text-shadow: 0px 1px 1px #34495E; }
 
 .deltodo {
   cursor: pointer; }
@@ -152,4 +162,5 @@ section {
 .post-todo-form {
   margin: 0 auto;
   text-align: center;
-  margin: 20px; }
+  padding: 20px;
+  background-color: #2980B9; }
