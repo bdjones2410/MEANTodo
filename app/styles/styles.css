@@ -97,21 +97,56 @@ aside {
   aside ul {
     list-style: none;
     padding: 0;
+    margin-left: 20px;
+    margin-right: 20px;
     text-align: center;
-    font-size: 1.5em; }
+    font-size: 1.5em;
+    background-color: #CCCCCC;
+    border: 1px solid #CCCCCC;
+    border-radius: 5px;
+    overflow: scroll;
+    padding-left: 0;
+    margin-bottom: 20px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    box-shadow: inset 2px 1px 3px #AAAAAA; }
     aside ul li {
       font-size: 1.5em;
       cursor: pointer;
-      margin: 10px 0; }
+      margin: 0 auto; }
       aside ul li .custom-ban {
-        font-size: 0.5em;
+        font-size: 0.7em;
         color: red;
         vertical-align: middle;
         margin-top: -50%; }
       aside ul li .ban-box {
         align-content: inherit;
-        float: right;
-        margin-right: 20px; }
+        float: right; }
+  aside .upperlists {
+    padding: 10px;
+    margin: 20px;
+    margin-bottom: 0;
+    border-radius: 6px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    border: 1px solid #CCCCCC;
+    border-bottom: 0px solid #AAAAAA;
+    background-color: #eeeeee; }
+  aside .custom-list {
+    margin: 15px 15px;
+    box-shadow: 1px 3px 3px #AAAAAA;
+    border: 1px solid white; }
+  aside .list-label-custom {
+    display: block;
+    text-align: left; }
+  aside .list-heading {
+    text-align: center;
+    border-bottom: 1px solid #DDDDDD;
+    padding-bottom: 20px;
+    margin-left: 10px;
+    margin-right: 10px; }
+  aside .list-group-item:last-child {
+    margin-bottom: 15px; }
 
 /******************************
         MAIN CONTENT

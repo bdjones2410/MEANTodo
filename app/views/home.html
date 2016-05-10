@@ -47,24 +47,27 @@
       <button type="logout" class="btn btn-default"ng-click="mainCTRL.logout()">Log Out</button>
     </div>
   </div>
-
+<h2 class="list-heading"style="text-align:center">LISTS</h2>
 <div class="upperlists" ng-if="mainCTRL.isAuthenticated()">
-  <h4 style="text-align:center">LISTS</h4>
+
 
   <form style="text-align:center" class="form-inline"method="post" ng-submit="mainCTRL.createList(mainCTRL.listname)" name="listform">
     <div class="form-group">
+      <label for="listname" class="list-label-custom">Add List</label>
       <input type="text" name="listname" class="form-control" maxlength="12" ng-model="mainCTRL.listname">
       <button type="submit" class="btn btn-default"><i class="fa fa-plus add-green" aria-hidden="true"></i></button>
     </div>
   </form>
 </div>
 
-  <ul>
-    <li style="cursor: pointer" ng-click="mainCTRL.selectList(list)"ng-repeat="list in mainCTRL.lists">
+  <ul class="list-group">
+    <li ng-repeat="list in mainCTRL.lists">
+      <a href="#" ng-click="$event.stopPropagation();$event.preventDefault();mainCTRL.selectList(list)" class="list-group-item custom-list">
       {{list.list_name}}
       <div class="ban-box">
         <i class="fa fa-ban custom-ban" ng-click="$event.stopPropagation();$event.preventDefault(); $event.originalEvent.cancelBubble = true;mainCTRL.deleteList(list)" aria-hidden="true"></i>
       </div>
+      </a>
     </li>
   </ul>
 
