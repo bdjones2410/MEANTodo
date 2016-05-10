@@ -37,6 +37,13 @@ Such As:
 * As a logged in test Doer (clicking the test user signin) you have access to all features, though lists and tasks created by
 that test user will expire and be removed after 24hours.
 
+*Sorting options, show/hide completed tasks, clear all completed tasks.   Possible - require task be marked completed to be deleted?  
+
+*Add warnings/alert/cofirms when deleting lists with incomplete todos or todos from being deleted without being complete.
+
+*enable drag/drop resorting of lists and todo items
+
+
 #Future Plans
 
 * As a doer you can add people to certain lists, and assign tasks.   
