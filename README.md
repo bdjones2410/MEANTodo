@@ -41,6 +41,9 @@ that test user will expire and be removed after 24hours.
 
 *Add warnings/alert/cofirms when deleting lists with incomplete todos or todos from being deleted without being complete.
 
+*enable drag/drop resorting of lists and todo items
+
+
 #Future Plans
 
 * As a doer you can add people to certain lists, and assign tasks.   
