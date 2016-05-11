@@ -59,6 +59,17 @@ ul {
   padding: 20px 0;
   margin: 10px;
 }
+
+.list-form-custom{
+  margin:0;
+  padding:10px;
+  .list-div-custom {
+    width:100%;
+    .btn-right {
+      float:right;
+    }
+  }
+}
 .list-group-item:last-child {
   margin-bottom:15px;
   border-bottom-right-radius: 0px;

@@ -26,10 +26,12 @@ body {
   margin-top: 20px; }
 
 .btn-custom-cir {
-  color: #333;
-  background-color: #1ABC9C;
-  border-color: #16A085;
-  border-radius: 100%; }
+  color: #FFF;
+  border-radius: 100%;
+  background-color: #27AE60;
+  border: 1px solid #229955; }
+  .btn-custom-cir:hover {
+    background-color: #229955; }
 
 .add-green {
   color: #FFF; }
@@ -96,7 +98,8 @@ aside {
     padding: 30px 0;
     border-radius: 4px;
     padding-top: 0;
-    margin: 10px;
+    margin: 10px; }
+  aside .border-user {
     border: 1px solid #1ABC9C;
     border-bottom: 2px solid #1ABC9C;
     border-bottom-left-radius: 0px;
@@ -169,6 +172,13 @@ aside {
     text-shadow: 0px 1px 1px #34495E;
     padding: 20px 0;
     margin: 10px; }
+  aside .list-form-custom {
+    margin: 0;
+    padding: 10px; }
+    aside .list-form-custom .list-div-custom {
+      width: 100%; }
+      aside .list-form-custom .list-div-custom .btn-right {
+        float: right; }
   aside .list-group-item:last-child {
     margin-bottom: 15px;
     border-bottom-right-radius: 0px;
@@ -242,3 +252,19 @@ section {
   width: 75%;
   display: inline-block;
   text-align: center; }
+
+.MEAN-welcome {
+  padding: 15%; }
+  .MEAN-welcome .bigger-title {
+    font-size: 6em;
+    color: #FFF;
+    text-shadow: 0px 1px 3px black; }
+    .MEAN-welcome .bigger-title img {
+      width: 70px; }
+  .MEAN-welcome p {
+    font-size: 2em;
+    color: #7F8C8D; }
+    .MEAN-welcome p span {
+      font-weight: bold;
+      color: #FFF;
+      text-shadow: 0px 1px 3px black; }

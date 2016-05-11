@@ -1,8 +1,11 @@
 <aside>
-  <div class="login">
+  <div class="login" ng-class="{'border-user':mainCTRL.isAuthenticated()}">
 
     <!--Main Icon changes color based on logged in status-->
-    <span ng-if="mainCTRL.isAuthenticated()"class="logged-in-user">{{mainCTRL.username}}</span>
+    <span ng-if="mainCTRL.isAuthenticated()"class="logged-in-user">
+      {{mainCTRL.username}}
+    </span>
+
     <div class="main-icon" ng-class="{blueman: mainCTRL.isAuthenticated()}">
       <i id="user-icon-main" class="fa fa-user" aria-hidden="true"></i>
     </div>
@@ -28,7 +31,9 @@
             <input id="passInput" type="password" class="form-control" name="password" placeholder="Password" ng-model="mainCTRL.pword">
           </div>
         </div>
-          <button type="submit" class="btn btn-block btn-primary custom-btn">Log in</button>
+          <button type="submit" class="btn btn-block btn-primary custom-btn">
+            Log in
+          </button>
       </form>
 
       <!--If they want to sign up, this opens a modal with signup options-->
@@ -44,76 +49,84 @@
 
     <!--if a user is logged in, hide log in options, display logged in user-->
     <div ng-if="mainCTRL.isAuthenticated()" class="logged-in">
-
       <button type="logout" class="btn btn-default"ng-click="mainCTRL.logout()">Log Out</button>
     </div>
+
   </div>
-<h2 class="list-heading"style="text-align:center">LISTS</h2>
-<div class="upperlists" ng-if="mainCTRL.isAuthenticated()">
 
+  <h2 ng-if="mainCTRL.isAuthenticated()" class="list-heading"style="text-align:center">
+    LISTS
+  </h2>
 
-  <form style="text-align:center" class="form-inline"method="post" ng-submit="mainCTRL.createList(mainCTRL.listname)" name="listform">
-    <div class="form-group">
-      <label for="listname" class="list-label-custom">Add List</label>
-      <input type="text" name="listname" class="form-control" maxlength="12" ng-model="mainCTRL.listname">
-      <button type="submit" class="btn btn-default btn-custom-cir"><i class="fa fa-plus add-green" aria-hidden="true"></i></button>
-    </div>
-  </form>
-</div>
+  <div class="upperlists" ng-if="mainCTRL.isAuthenticated()">
+    <form style="text-align:center" class="form-inline list-form-custom" method="post" ng-submit="mainCTRL.createList(mainCTRL.listname)" name="listform">
 
-  <ul class="list-group">
+      <div class="form-group list-div-custom">
+
+        <input type="text" name="listname" placeholder="New List" class="form-control" maxlength="12" ng-model="mainCTRL.listname">
+
+        <button type="submit" class="btn btn-success btn-custom-cir btn-right">
+          <i class="fa fa-plus add-green" aria-hidden="true"></i>
+        </button>
+
+      </div>
+    </form>
+  </div>
+
+  <ul ng-if="mainCTRL.isAuthenticated()" class="list-group">
     <li ng-repeat="list in mainCTRL.lists">
       <a href="#" ng-click="$event.stopPropagation();$event.preventDefault();mainCTRL.selectList(list)" class="list-group-item custom-list">
-      {{list.list_name}}
-      <div class="ban-box">
-        <i class="fa fa-ban custom-ban" ng-click="$event.stopPropagation();$event.preventDefault(); $event.originalEvent.cancelBubble = true;mainCTRL.deleteList(list)" aria-hidden="true"></i>
-      </div>
+        {{list.list_name}}
+        <div class="ban-box">
+          <i class="fa fa-ban custom-ban" ng-click="$event.stopPropagation();$event.preventDefault(); $event.originalEvent.cancelBubble = true;mainCTRL.deleteList(list)" aria-hidden="true"></i>
+        </div>
       </a>
     </li>
   </ul>
-
 </aside>
+
 <section>
-  <div class="wrapping">
 
-
-  <div class="uppertodos" ng-if="mainCTRL.isAuthenticated()">
-    <h1>{{mainCTRL.selectedList}}</h1>
-
-    <!-- <form method="post" class="post-todo-form form-inline" ng-submit="mainCTRL.todoPost(mainCTRL.todoval)" name="todoposter">
-      <div class="todos form-group">
-        <input type="text" name="todoPost" ng-model="mainCTRL.todoval" class="form-control" value="">
-        <button type="submit" class="btn btn-default"><i class="fa fa-plus add-green" aria-hidden="true"></i></button>
-      </div>
-    </form> -->
-
+  <div class="MEAN-welcome" ng-hide="mainCTRL.isAuthenticated()">
+    <h1 class="bigger-title">
+      MEAN Agenda
+      <img src="assets/meanicon.png" class="img-responsive img-thumbnail" alt="">
+    </h1>
+    <p>Create - Organize - Store - Log in - <span>DO</span>.</p>
   </div>
 
-  <ul class="list-group todo-group">
-    <li class="list-group-item todo-item todo-input">
-      <form method="post" class="post-todo-form form-inline" ng-submit="mainCTRL.todoPost(mainCTRL.todoval)" name="todoposter">
-        <div class="todos form-group">
-          <input type="text" name="todoPost" ng-model="mainCTRL.todoval" class="form-control" value="">
-          <button type="submit" class="btn btn-default btn-custom-cir"><i class="fa fa-plus add-green" aria-hidden="true"></i></button>
-        </div>
-      </form>
-    </li>
-    <li class="list-group-item todo-item" ng-repeat="todo in mainCTRL.todos">
+  <div ng-if="mainCTRL.isAuthenticated()" class="wrapping">
+    <div class="uppertodos">
+      <h1>{{mainCTRL.selectedList}}</h1>
+    </div>
 
-      <div class="todo-container"ng-class="{isComplete: todo.completed}">
+    <ul ng-if="mainCTRL.isAuthenticated()" class="list-group todo-group">
+      <li class="list-group-item todo-item todo-input">
+        <form method="post" class="post-todo-form form-inline" ng-submit="mainCTRL.todoPost(mainCTRL.todoval)" name="todoposter">
+          <div class="todos form-group">
+            <input type="text" name="todoPost" ng-model="mainCTRL.todoval" class="form-control" value="" placeholder="New Todo">
+            <button type="submit" class="btn btn-success btn-custom-cir"><i class="fa fa-plus add-green" aria-hidden="true"></i></button>
+          </div>
+        </form>
+      </li>
+      <li class="list-group-item todo-item" ng-repeat="todo in mainCTRL.todos">
 
-        <div ng-click="mainCTRL.toggleComplete(todo)" class="toggle-complete-div custom-div fa" ng-class="{'fa-check-circle-o':todo.completed, 'fa-circle-o':!todo.completed}">
-        </div>
+        <div class="todo-container"ng-class="{isComplete: todo.completed}">
 
-        <div class="todoInfo">
-          <h4>{{todo.todo}}</h4>
-        </div>
+          <div ng-click="mainCTRL.toggleComplete(todo)" class="toggle-complete-div custom-div fa" ng-class="{'fa-check-circle-o':todo.completed, 'fa-circle-o':!todo.completed}">
+          </div>
 
-        <div class="deltodo btn btn-danger" ng-click=" mainCTRL.delete(todo)">
-          Delete
+          <div class="todoInfo">
+            <h4>{{todo.todo}}</h4>
+          </div>
+
+          <div class="deltodo btn btn-danger" ng-click=" mainCTRL.delete(todo)">
+            Delete
+          </div>
         </div>
-      </div>
-    </li>
-  </ul>
+      </li>
+    </ul>
+
+
   </div>
 </section>
