@@ -16,7 +16,7 @@ html {
   height: 100%; }
 
 body {
-  background-color: black;
+  background-color: #FFFFFF;
   height: 100%;
   margin: 0; }
   body form {
@@ -25,8 +25,19 @@ body {
 .custom-btn {
   margin-top: 20px; }
 
+.btn-custom-cir {
+  color: #333;
+  background-color: #1ABC9C;
+  border-color: #16A085;
+  border-radius: 100%; }
+
 .add-green {
-  color: #1ABC9C; }
+  color: #FFF; }
+
+.list-group-item {
+  border: 1px solid #BDC3C7; }
+  .list-group-item input {
+    border: 1px solid #BDC3C7; }
 
 /******************************
           MODAL
@@ -58,7 +69,7 @@ aside {
   /******************************
           TD LISTS
 ******************************/
-  background-color: #FEFEFE;
+  border: 1px solid #EFEFEF;
   height: 100%;
   width: 25%;
   float: left; }
@@ -68,7 +79,7 @@ aside {
     border-radius: 1000px;
     background-color: #ccc;
     border: 5px solid;
-    margin: 0 auto;
+    margin: 10px auto;
     width: 125px;
     height: 125px; }
   aside #user-icon-main {
@@ -76,13 +87,20 @@ aside {
     margin-top: 5px; }
   aside .main-log {
     text-align: center;
-    margin-top: 15px; }
+    margin-top: 15px;
+    padding: 10px; }
   aside .sign-up {
     color: black; }
   aside .login {
-    padding-bottom: 30px;
+    background-color: #FFF;
+    padding: 30px 0;
+    border-radius: 4px;
+    padding-top: 0;
     margin: 10px;
-    border-bottom: 2px solid #DDDDDD; }
+    border: 1px solid #1ABC9C;
+    border-bottom: 2px solid #1ABC9C;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px; }
   aside input {
     width: 33%; }
   aside .blueman {
@@ -92,8 +110,13 @@ aside {
   aside .logged-in {
     text-align: center; }
   aside .logged-in-user {
+    background-color: #1ABC9C;
+    color: #ECF0F1;
+    text-shadow: 0px 1px 1px #34495E;
+    margin-bottom: 20px;
+    text-align: center;
     display: block;
-    font-size: 1.5em; }
+    font-size: 2em; }
   aside ul {
     list-style: none;
     padding: 0;
@@ -131,7 +154,7 @@ aside {
     border-bottom-right-radius: 0;
     border: 1px solid #CCCCCC;
     border-bottom: 0px solid #AAAAAA;
-    background-color: #eeeeee; }
+    background-color: #dedede; }
   aside .custom-list {
     margin: 15px 15px;
     box-shadow: 1px 3px 3px #AAAAAA;
@@ -141,16 +164,27 @@ aside {
     text-align: left; }
   aside .list-heading {
     text-align: center;
-    border-bottom: 1px solid #DDDDDD;
-    padding-bottom: 20px;
-    margin-left: 10px;
-    margin-right: 10px; }
+    background-color: #2980B9;
+    color: #ECF0F1;
+    text-shadow: 0px 1px 1px #34495E;
+    padding: 20px 0;
+    margin: 10px; }
   aside .list-group-item:last-child {
-    margin-bottom: 15px; }
+    margin-bottom: 15px;
+    border-bottom-right-radius: 0px;
+    border-bottom-left-radius: 0px; }
+  aside .list-group-item:first-child {
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px; }
 
 /******************************
         MAIN CONTENT
 ******************************/
+.wrapping {
+  margin: 30px;
+  overflow: auto;
+  height: 90%; }
+
 .todo-group {
   width: 60%;
   margin: 0 auto;
@@ -169,15 +203,30 @@ aside {
         float: right; }
 
 .uppertodos {
-  background: #3498DB;
-  overflow: hidden;
+  background-color: #2980B9;
+  overflow: auto;
   margin-bottom: 30px;
-  border-left: 2px solid #EBEEF1;
-  border-bottom: 2px solid grey; }
+  border: 1px solid #2980B9; }
   .uppertodos h1 {
     font-size: 5em;
     color: #ECF0F1;
     text-shadow: 0px 1px 1px #34495E; }
+
+.todo-input {
+  padding: 0;
+  overflow: auto;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px; }
+
+.post-todo-form {
+  margin: 0 auto;
+  text-align: center;
+  padding: 20px;
+  background-color: #dedede; }
+  .post-todo-form .todos {
+    width: 100%; }
+    .post-todo-form .todos .btn-custom-cir {
+      float: right; }
 
 .deltodo {
   cursor: pointer; }
@@ -188,14 +237,8 @@ aside {
     text-decoration: line-through; }
 
 section {
-  background-color: #EFEFEF;
+  background-color: #F9f9f9;
   height: 100%;
   width: 75%;
   display: inline-block;
   text-align: center; }
-
-.post-todo-form {
-  margin: 0 auto;
-  text-align: center;
-  padding: 20px;
-  background-color: #2980B9; }

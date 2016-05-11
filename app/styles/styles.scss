@@ -24,7 +24,7 @@ html {
 }
 
 body {
-  background-color: black;
+  background-color: #FFFFFF;
   height: 100%;
   margin: 0;
   form {
@@ -36,10 +36,22 @@ body {
   margin-top:20px;
 }
 
-.add-green {
-  color: #1ABC9C;
+.btn-custom-cir {
+  color: #333;
+  background-color: #1ABC9C;
+  border-color: #16A085;
+  border-radius: 100%;
 }
 
+.add-green {
+  color: #FFF;
+}
+.list-group-item {
+  border: 1px solid #BDC3C7;
+  input {
+    border: 1px solid #BDC3C7;
+  }
+}
 
 
 
@@ -61,7 +73,7 @@ body {
 
 aside {
   @import "user";
-  background-color:#FEFEFE;
+  border: 1px solid #EFEFEF;
   height: 100%;
   width: 25%;
   float: left;
@@ -76,16 +88,9 @@ aside {
 @import "todos";
 
 section {
-  background-color: #EFEFEF;
+  background-color: #F9f9f9;
   height: 100%;
   width: 75%;
   display: inline-block;
   text-align: center;
-}
-
-.post-todo-form {
-  margin:0 auto;
-  text-align: center;
-  padding: 20px;
-  background-color: #2980B9;
 }
